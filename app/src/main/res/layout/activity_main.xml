@@ -19,6 +19,14 @@
         android:layout_marginTop="10dp"
         android:textColor="#fff"
         />
+    <TextView
+        android:id="@+id/tv_tanggal"
+        android:layout_below="@id/tv_kota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="2018-8-27"
+        android:textColor="#fff"
+        android:textAlignment="center"/>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -92,7 +100,7 @@
                 android:id="@+id/tv_info_shubuh"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="05:52"
+                tools:text="4:37 am"
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:textAlignment="center"/>
@@ -102,7 +110,7 @@
                 android:id="@+id/tv_info_dzuhur"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="11:54"
+                tools:text="11:54 am"
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:textAlignment="center"/>
@@ -112,7 +120,7 @@
                 android:id="@+id/tv_info_ashar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="03:13"
+                tools:text="3:14 pm"
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:textAlignment="center"/>
@@ -122,7 +130,7 @@
                 android:id="@+id/tv_info_maghrib"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="05:56"
+                tools:text="5:58 pm"
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:textAlignment="center"/>
@@ -132,7 +140,7 @@
                 android:id="@+id/tv_info_isya"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="07:03"
+                tools:text="7:03 pm"
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:textAlignment="center"/>
