@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiInterface {
-    @GET("d1aa7cdf5e8c0d2d7f1f47811497a732")
+    @GET("bogor.json?key=d1aa7cdf5e8c0d2d7f1f47811497a732")
     Call<GetJadwal> getJadwal();
 
 }
