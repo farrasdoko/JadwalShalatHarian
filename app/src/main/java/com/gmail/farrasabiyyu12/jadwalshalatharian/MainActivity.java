@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_judul_shubuh, tv_judul_dzuhur, tv_judul_ashar, tv_judul_maghrib, tv_judul_isya, tv_info_shubuh, tv_info_dzuhur,
             tv_info_ashar, tv_info_maghrib, tv_info_isya;
 
-    List<Jadwal> mJadwalList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetJadwal> call, Response<GetJadwal> response) {
                 if (response.body().getStatus_description()=="Success.") {
-//                    tv_info_shubuh.setText(response.body().getStatus_description());
-                    tv_info_shubuh.setText(mJadwalList.get(0).getFajr());
+                    List<Jadwal> mJadwalList = response.body().getListDataJadwal();
+                    tv_info_shubuh.setText(response.body().getStatus_description());
+//                    tv_info_shubuh.setText(mJadwalList.get(0).getFajr());
                 }
             }
 
