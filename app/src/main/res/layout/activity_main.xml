@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,141 +11,18 @@
         android:id="@+id/tv_kota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="jakarta"
+        tools:text="west java indonesia id"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textAllCaps="true"
         android:layout_marginTop="10dp"
         android:textColor="#fff"
         />
-    <TextView
-        android:id="@+id/tv_tanggal"
-        android:layout_below="@id/tv_kota"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rc_jadwal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="2018-8-27"
-        android:textColor="#fff"
-        android:textAlignment="center"/>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="191dp"
-        android:orientation="horizontal">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_judul_shubuh"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/shubuh"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_judul_dzuhur"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/dzuhur"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_judul_ashar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/ashar"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_judul_maghrib"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/maghrib"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_judul_isya"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/isya"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_info_shubuh"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:text="4:37 am"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_info_dzuhur"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:text="11:54 am"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_info_ashar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:text="3:14 pm"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_info_maghrib"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:text="5:58 pm"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_info_isya"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:text="7:03 pm"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:textAlignment="center"/>
-
-        </TableRow>
-
-    </TableLayout>
+        android:layout_below="@+id/tv_kota"/>
 
 </RelativeLayout>

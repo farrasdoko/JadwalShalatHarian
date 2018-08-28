@@ -2,8 +2,12 @@ package com.gmail.farrasabiyyu12.jadwalshalatharian;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
+import com.gmail.farrasabiyyu12.jadwalshalatharian.adapter.JadwalAdapter;
 import com.gmail.farrasabiyyu12.jadwalshalatharian.model.ItemsItem;
 import com.gmail.farrasabiyyu12.jadwalshalatharian.model.ResponseJadwal;
 import com.gmail.farrasabiyyu12.jadwalshalatharian.rest.ApiClient;
@@ -16,48 +20,55 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv_judul_shubuh, tv_judul_dzuhur, tv_judul_ashar, tv_judul_maghrib, tv_judul_isya, tv_info_shubuh, tv_info_dzuhur,
-            tv_info_ashar, tv_info_maghrib, tv_info_isya, tv_kota, tv_tanggal;
+
+    //TODO Declare
+    TextView tv_kota;
+    RecyclerView rc_item;
+    RecyclerView.Adapter mAdapter;
+    ApiInterface mApiInterface;
+    RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_info_shubuh = findViewById(R.id.tv_info_shubuh);
-        tv_info_dzuhur = findViewById(R.id.tv_info_dzuhur);
-        tv_info_ashar = findViewById(R.id.tv_info_ashar);
-        tv_info_maghrib = findViewById(R.id.tv_info_maghrib);
-        tv_info_isya = findViewById(R.id.tv_info_isya);
+        //TODO Bind TextView
         tv_kota = findViewById(R.id.tv_kota);
-        tv_tanggal = findViewById(R.id.tv_tanggal);
 
+        //TODO Bind RecyclerView
+        rc_item = findViewById(R.id.rc_jadwal);
+
+        //TODO Other
+        mLayoutManager = new LinearLayoutManager(this);
+        rc_item.setLayoutManager(mLayoutManager);
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        //TODO Get Data
         getData();
     }
 
+    //TODO set up getData
     private void getData() {
-        ApiInterface api = ApiClient.getInstance();
-        Call<ResponseJadwal> call = api.getJadwal();
-        call.enqueue(new Callback<ResponseJadwal>() {
+        Call<ResponseJadwal> jadwalCall = mApiInterface.getJadwal();
+        jadwalCall.enqueue(new Callback<ResponseJadwal>() {
             @Override
             public void onResponse(Call<ResponseJadwal> call, Response<ResponseJadwal> response) {
                 if (response.body().getStatusCode()==1) {
-                    List<ItemsItem> mJadwalList = response.body().getItems();
-                    tv_info_shubuh.setText(mJadwalList.get(0).getFajr());
-                    tv_info_dzuhur.setText(mJadwalList.get(0).getDhuhr());
-                    tv_info_ashar.setText(mJadwalList.get(0).getAsr());
-                    tv_info_maghrib.setText(mJadwalList.get(0).getMaghrib());
-                    tv_info_isya.setText(mJadwalList.get(0).getIsha());
-                    tv_tanggal.setText(mJadwalList.get(0).getDateFor());
-
+                    List<ItemsItem> JadwalList = response.body().getItems();
+                    Log.d("Retrofit Get", "Jumlah data Jadwal Shalat: " +
+                            String.valueOf(JadwalList.size()));
+                    mAdapter = new JadwalAdapter(JadwalList);
+                    rc_item.setAdapter(mAdapter);
                     tv_kota.setText(response.body().getState() + ", " + response.body().getCountry() + " " + response.body().getCountryCode());
 
             }
+
             }
 
             @Override
             public void onFailure(Call<ResponseJadwal> call, Throwable t) {
-
+                Log.e("Retrofit Get", t.toString());
             }
         });
     }
